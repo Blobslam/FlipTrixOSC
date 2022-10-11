@@ -14,7 +14,7 @@ You can download the pre-release [here](https://github.com/Blobslam/FlipTrixOSC/
 **Getting started**
 1. Create an application in the Spotify Developer Dashboard https://developer.spotify.com/dashboard/
 2. Go to the application settings and set the callback address to http://localhost:5000/callback to ensure authorization with your local spotify client.
-3. Insert your client secret and client id from your created spotify application in the appsettings.json file
+3. Insert your client secret and client id from your created spotify application in the `appsettings.json` file
 4. Run the program
 
 Building the program from source:
