@@ -9,6 +9,8 @@ Please adjust the OSCSender class for you needs.
 For sending the OSC Packages, FlipTrixOSC uses SharpOSC https://github.com/ValdemarOrn/SharpOSC<br/>
 For accessing the SpotifyAPI https://github.com/JohnnyCrazy/SpotifyAPI-NET
 
+You can download the pre-release [here](https://github.com/Blobslam/FlipTrixOSC/releases/tag/v.0.1.0)
+
 **Getting started**
 1. Create an application in the Spotify Developer Dashboard https://developer.spotify.com/dashboard/
 2. Go to the application settings and set the callback address to http://localhost:5000/callback to ensure authorization with your local spotify client.
