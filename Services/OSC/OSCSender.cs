@@ -48,7 +48,7 @@ namespace FlipTrixOSC.Services.OSC
                     {
                         // SEND OSC HERE
                         string currentTime = DateTime.Now.ToString("hh:mm tt", CultureInfo.InvariantCulture);
-                        var inputMessage = new OscMessage("/chatbox/input", $"--------- time: {currentTime} --------- playback paused", true);
+                        var inputMessage = new OscMessage("/chatbox/input", $"FlipTrixOSC\vtime: {currentTime}\vplayback paused", true);
                         var currentSong = await _client.Player.GetCurrentPlayback();
                         if (currentSong != null)
                         {
@@ -69,7 +69,16 @@ namespace FlipTrixOSC.Services.OSC
                                 {
                                     currentArtists = track.Artists.First().Name;
                                 }
-                                inputMessage = new OscMessage("/chatbox/input", $"time: {currentTime}\vplaying: {track.Name} - {currentArtists}\vvolume: {currentSong.Device.VolumePercent}%", true);
+                                string volumeStatus = "medium";
+
+                                if (currentSong.Device.VolumePercent <= 30)
+                                    volumeStatus = "quiet";
+                                else if (currentSong.Device.VolumePercent <= 60)
+                                    volumeStatus = "medium";
+                                else
+                                    volumeStatus = "loud";
+
+                                inputMessage = new OscMessage("/chatbox/input", $"FlipTrixOSC\vtime: {currentTime}\vplaying: {track.Name}\v{currentArtists}\vvolume: {currentSong.Device.VolumePercent}% ({volumeStatus})", true);
                             }
                         }
                         _oscsender.Send(inputMessage);
